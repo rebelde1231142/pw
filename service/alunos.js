@@ -8,6 +8,6 @@ export const listar = (nome) => {
     return resultado;
 }
 
-export const buscarPorId = (id) => {
-    return alunos.find((aluno) => aluno.id === id);
+export const consultarPorId = (_id) => {
+    return alunos.find(aluno => aluno.id == _id);
 }

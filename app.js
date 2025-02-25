@@ -1,5 +1,5 @@
 import express from 'express';
-
+import * as  alunos from './data/data.js';
 import { listar } from './service/alunos.js';
 
 const app = express();
@@ -14,12 +14,12 @@ app.get('/',(req,res)=>{
 
 app.get('/alunos',(req,res)=>{
     let nome = req.query.nome;
-    return res.status(200).json(listar(nome));
+    return res.status(200).json(alunos.listar(nome));
 });
 
 app.get('/alunos/:id',(req,res)=>{
     let id = req.params.id;
-    return res.status(200).json(consultarPorId(id));
+    return res.status(200).json(alunos.consultarPorId(id));
 });
 
 app.listen(PORT,()=>{

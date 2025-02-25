@@ -1,21 +1,27 @@
 import express from 'express';
 
+import { listar } from './service/alunos.js';
+
 const app = express();
-app.use(express.json());
+const PORT = 3030;
 
 app.get('/',(req,res)=>{
-    const resposta = {"Result:":"API em execução"
-    }
-    return res.status(200).json(Resposta);
+    return res.status(200).json({
+        "alunos": `http://localhost:${PORT}/alunos`,
+        "disciplinas": `http://localhost:${PORT}/disciplinas`
+    });   
 });
 
-app.get('/soma',(req,res)=>{
-    const {valores} = req.body;
-    let Result = valores.reduce((total,valor)=>total+valor, 0)
-    return res.status(200).json({"result":result})
-})
+app.get('/alunos',(req,res)=>{
+    let nome = req.query.nome;
+    return res.status(200).json(listar(nome));
+});
 
-const PORT = 3000;
+app.get('/alunos/:id',(req,res)=>{
+    let id = req.params.id;
+    return res.status(200).json(consultarPorId(id));
+});
+
 app.listen(PORT,()=>{
-    console.log(`aplicação esta em execução\nhttp://localhost:${PORT}`);
+    console.log(`Servidor rodando> http://localhost:${PORT}`);
 });

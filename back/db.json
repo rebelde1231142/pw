@@ -1,0 +1,116 @@
+{
+  "categoria": [
+    {
+      "id": "1",
+      "nome": "Sedan",
+      "logo": "sedan_logo.png"
+    },
+    {
+      "id": "2",
+      "nome": "Hatch",
+      "logo": "hatch_logo.png"
+    },
+    {
+      "id": "3",
+      "nome": "Picape",
+      "logo": "picape_logo.png"
+    },
+    {
+      "id": "4",
+      "nome": "Moto",
+      "logo": "moto_logo.png"
+    },
+    {
+      "id": "5",
+      "nome": "Caminhonete",
+      "logo": "caminhonete_logo.png"
+    }
+  ],
+  "montadora": [
+    {
+      "id": "1",
+      "nome": "Toyota",
+      "nascionalidade": "Japonesa",
+      "logo": "toyota_logo.png"
+    },
+    {
+      "id": "2",
+      "nome": "Ford",
+      "nascionalidade": "Americana",
+      "logo": "ford_logo.png"
+    },
+    {
+      "id": "3",
+      "nome": "Volkswagen",
+      "nascionalidade": "Alemã",
+      "logo": "volkswagen_logo.png"
+    },
+    {
+      "id": "4",
+      "nome": "Honda",
+      "nascionalidade": "Japonesa",
+      "logo": "honda_logo.png"
+    },
+    {
+      "id": "5",
+      "nome": "Chevrolet",
+      "nascionalidade": "Americana",
+      "logo": "chevrolet_logo.png"
+    },
+    {
+      "id": "6",
+      "nome": "Nissan",
+      "nascionalidade": "Japonesa",
+      "logo": "Nissan_logo.png"
+    },
+    {
+      "id": "7",
+      "nome": "Mercedes",
+      "nascionalidade": "Alemã",
+      "logo": "Mercedes_logo.png"
+    },
+    {
+      "id": "8",
+      "nome": "Ferrari",
+      "nascionalidade": "Italiana",
+      "logo": "Ferrari_logo.png"
+    },
+    {
+      "id": "9",
+      "nome": "Lamborguini",
+      "nascionalidade": "Italiana",
+      "logo": "Lamborguini_logo.png"
+    }
+  ],
+  "veiculo": [
+    {
+      "id": "d200",
+      "modelo": "Onix LTZ Premier",
+      "ano": 2025,
+      "preco": 150000,
+      "descricao": "​O Chevrolet Onix Premier 2025 é a versão topo de linha do hatch compacto da marca, destacando-se por seu pacote completo de tecnologia, segurança e conforto.​\nFipe Carros\n\nMotorização e Desempenho\nEquipado com motor 1.0 turbo flex de três cilindros, o Onix Premier entrega 116 cv de potência e torque de até 16,8 kgfm com etanol. A transmissão é automática de seis marchas, com opção de trocas manuais. A aceleração de 0 a 100 km/h ocorre em 10,1 segundos, e a velocidade máxima é de 187 km/h. ",
+      "cor": "Prata",
+      "quilometragem": 0,
+      "potencia": 120,
+      "motor": "1.0 turbo",
+      "cambio": "Manual",
+      "direcao": "Elétrica",
+      "tracao": "Dianteira",
+      "categoriaId": 1,
+      "montadoraId": 1,
+      "avaliacao": 5,
+      "destaque": true,
+      "disponivel": true,
+      "imagem": [
+        "http://localhost:3037/uploads/1745774001781.jpg",
+        "http://localhost:3037/uploads/1745774001779.jpg",
+        "http://localhost:3037/uploads/1745774001781.jpg",
+        "http://localhost:3037/uploads/1745774001782.jpg",
+        "http://localhost:3037/uploads/1745773996806.jpg",
+        "http://localhost:3037/uploads/1745773996807.jpg",
+        "http://localhost:3037/uploads/1745773996808.jpg",
+        "http://localhost:3037/uploads/1745773996809.jpg"
+      ]
+    }
+  ]
+}

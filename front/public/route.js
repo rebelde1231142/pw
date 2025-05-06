@@ -18,6 +18,14 @@ const rotas = [
     {
         'path': '/veiculo/cadastro',
         'component': '/page/veiculo/cadastro.html'
+    },
+    {
+        'path': '/usuario/login',
+        'component': '/page/login.html'
+    },
+    {
+        'path': '/CadastroUsuario',
+        'component': '/page/cadastrousuario.html'
     }
 ];
 
@@ -39,45 +47,22 @@ export const loadPage = async (callBackPageReturned) => {
         }
 
         const page = await response.text();
-        callBackPageReturned(page); // Chama o callback com o conteúdo
+        callBackPageReturned(page);
 
+        // Ocultar o rodapé e o menu na página de login
+        const currentPath = window.location.pathname;
+        const footer = document.getElementById('container-footer');
+        const menu = document.getElementById('menu');
+        if (currentPath === '/login' || currentPath === '/usuario/login') {
+            if (footer) footer.style.display = 'none';
+            if (menu) menu.style.display = 'none';
+        } else {
+            if (footer) footer.style.display = 'block';
+            if (menu) menu.style.display = 'block';
+        }
     } catch (error) {
         console.error('Erro ao carregar página:', error);
     }
-}
-
-// export const loadPage = (containerRootId)=>{
-//     let rota = rotear();
-//     $(`#${containerRootId}`).load(rota.component);
-// }
-
-// export const loadPage = async () => {
-//     try {
-//         let rota = rotear(window.location.pathname);
-//         const response = await fetch(rota.component);
-
-//         if (!response.ok) {
-//             throw new Error(`Erro ao carregar a página: ${response.statusText}`);
-//         }
-
-//         return await response.text();
-
-//     } catch (error) {
-//         console.error('Erro ao carregar página:', error);
-//     }
-// }
-
-//####Como usar se o loadPage retornar o conteudo
-// const conteudo = await loadPage();
-// if (conteudo) {
-//     document.getElementById('app').innerHTML = conteudo;
-// }
-
-//####Como usar se o loadPage receber um callback
-// loadPage().then(conteudo => {
-//     if (conteudo) {
-//         document.getElementById('app').innerHTML = conteudo;
-//     }
-// });
+};
 
 

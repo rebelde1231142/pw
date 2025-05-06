@@ -59,25 +59,33 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="/">
-                            <i class="bi bi-box-arrow-right"></i>
-                            <span>Sair</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>          
-        </ul>
-
-        <!-- Campo de busca em mobile -->
-        <form class="d-lg-none mt-3" role="search">
-          <div class="input-group">
-            <input class="form-control" type="search" placeholder="Buscar..." aria-label="Search">
-            <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
-          </div>
-        </form>
+                      <a class="dropdown-item" href="usuario/login" id="buttonsair">
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span>Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+                    
+    <!-- Campo de busca em mobile -->
+    <form class="d-lg-none mt-3" role="search">
+      <div class="input-group">
+        <input class="form-control" type="search" placeholder="Buscar..." aria-label="Search">
+        <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
       </div>
-    </div>
+    </form>
   </div>
+</div>
+</div>
 </nav>
+
+<script>
+document.getElementById('buttonsair').addEventListener('click', function (e) {
+    e.preventDefault(); // Evita o comportamento padrão do link
+    window.location.href = '/usuario/login'; // Redireciona para a página de login
+});
+</script>
+
 
 <script src='/components/menu/alterar_tema.js'></script>

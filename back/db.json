@@ -135,6 +135,38 @@
         "http://localhost:3037/uploads/1746527785193.jpg",
         "http://localhost:3037/uploads/1746527785181.jpg"
       ]
+    },
+    {
+      "id": "483f",
+      "modelo": "Xre 344",
+      "ano": 2021,
+      "preco": 34044,
+      "descricao": "",
+      "cor": "Preto",
+      "quilometragem": 15555,
+      "potencia": 3222,
+      "motor": " monocilíndrico OHC",
+      "cambio": "Manual",
+      "direcao": "Hidráulica",
+      "tracao": "Traseira",
+      "categoriaId": 2,
+      "montadoraId": 2,
+      "avaliacao": 5,
+      "destaque": false,
+      "disponivel": true,
+      "imagem": [
+        "http://localhost:3037/uploads/1746531722653.jpg",
+        "http://localhost:3037/uploads/1746531722655.jpg",
+        "http://localhost:3037/uploads/1746531722650.jpg"
+      ]
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Admin",
+      "email": "admin@example.com",
+      "senha": "123456"
     }
   ]
 }

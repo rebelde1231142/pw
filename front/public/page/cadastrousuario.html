@@ -1,0 +1,56 @@
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Cadastro de Usuário</h1>
+    <form id="formCadastroUsuario">
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nome" placeholder="Digite seu nome" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" required>
+        </div>
+        <div class="mb-3">
+            <label for="senha" class="form-label">Senha</label>
+            <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+    <div id="alertaCadastro" class="alert d-none mt-3" role="alert"></div>
+</div>
+
+<script>
+    $(document).ready(() => {
+        $('#formCadastroUsuario').on('submit', function (e) {
+            e.preventDefault();
+
+            const usuario = {
+                nome: $('#nome').val(),
+                email: $('#email').val(),
+                senha: $('#senha').val()
+            };
+
+            fetch('http://localhost:3000/usuarios', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(usuario)
+            })
+            .then(response => {
+                if (response.ok) {
+                    $('#alertaCadastro')
+                        .removeClass('d-none alert-danger')
+                        .addClass('alert-success')
+                        .text('Usuário cadastrado com sucesso!');
+                    $('#formCadastroUsuario')[0].reset();
+                } else {
+                    throw new Error('Erro ao cadastrar usuário.');
+                }
+            })
+            .catch(error => {
+                $('#alertaCadastro')
+                    .removeClass('d-none alert-success')
+                    .addClass('alert-danger')
+                    .text(error.message);
+            });
+        });
+    });
+</script>

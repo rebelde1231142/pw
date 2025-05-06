@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <style>
+        body {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            color: #fff;
+        }
+        .login-container {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            color: #333;
+            max-width: 400px;
+            width: 100%;
+        }
+        .login-container h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #6a11cb;
+        }
+        .btn-primary {
+            background: #6a11cb;
+            border: none;
+        }
+        .btn-primary:hover {
+            background: #2575fc;
+        }
+        .alert {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <form id="formLogin">
+            <h1>Login</h1>
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" required>
+            </div>
+            <div class="mb-3">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Entrar</button>
+        </form>
+        <div id="alertaLogin" class="alert d-none mt-3" role="alert"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(() => {
+            $('#formLogin').on('submit', function (e) {
+                e.preventDefault();
+
+                const email = $('#email').val();
+                const senha = $('#senha').val();
+
+                fetch('http://localhost:3000/usuarios')
+                    .then(response => response.json())
+                    .then(usuarios => {
+                        const usuario = usuarios.find(u => u.email === email && u.senha === senha);
+                        if (usuario) {
+                            $('#alertaLogin')
+                                .removeClass('d-none alert-danger')
+                                .addClass('alert-success')
+                                .text('Login realizado com sucesso!');
+                            setTimeout(() => window.location.href = '/', 2000);
+                        } else {
+                            throw new Error('E-mail ou senha inválidos.');
+                        }
+                    })
+                    .catch(error => {
+                        $('#alertaLogin')
+                            .removeClass('d-none alert-success')
+                            .addClass('alert-danger')
+                            .text(error.message);
+                    });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -111,6 +111,30 @@
         "http://localhost:3037/uploads/1745773996808.jpg",
         "http://localhost:3037/uploads/1745773996809.jpg"
       ]
+    },
+    {
+      "id": "9cdd",
+      "modelo": "Xre 300",
+      "ano": 2021,
+      "preco": 34000,
+      "descricao": "Moto boa, com ótima suspensão, zero km",
+      "cor": "Preto",
+      "quilometragem": 0,
+      "potencia": 311,
+      "motor": " monocilíndrico OHC",
+      "cambio": "Manual",
+      "direcao": "Hidráulica",
+      "tracao": "Traseira",
+      "categoriaId": 4,
+      "montadoraId": 4,
+      "avaliacao": 5,
+      "destaque": false,
+      "disponivel": true,
+      "imagem": [
+        "http://localhost:3037/uploads/1746527785195.jpg",
+        "http://localhost:3037/uploads/1746527785193.jpg",
+        "http://localhost:3037/uploads/1746527785181.jpg"
+      ]
     }
   ]
 }

@@ -163,10 +163,29 @@
   ],
   "usuarios": [
     {
-      "id": 1,
+      "id": "1",
       "nome": "Admin",
       "email": "admin@example.com",
       "senha": "123456"
+    },
+    {
+      "nome": "leonel",
+      "email": "leonelbrenodasilva@gmail.com",
+      "telefone": "15999999999",
+      "senha": "leozin1231142",
+      "fotoPerfil": "http://localhost:3037/uploads/1747135720270.jpg",
+      "id": "d97d"
+    },
+    {
+      "id": "e192",
+      "nome": "luan",
+      "email": "leonelbrenodasilva1@gmail.com",
+      "telefone": "15999999998",
+      "senha": "leozin1231142",
+      "fotoPerfil": "http://localhost:3037/uploads/1747136156100.jpg"
     }
-  ]
+  ],
+  "perfil": {
+    "telefone": "15999999999"
+  }
 }

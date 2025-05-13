@@ -35,19 +35,20 @@
         import { loadMenu } from '/components/menu/menu.js';
         import { loadFooter } from '/components/footer/footer.js';
         import { loadPage } from '/route.js';
-        //import { loadTheme } from '/assets/js/alterar_tema.js';
 
+        // Verifica se o usuário está logado
+        const usuarioLogado = localStorage.getItem('usuarioLogado');
+        if (usuarioLogado) {
+            loadMenu('menu', 'logado');
+        } else {
+            loadMenu('menu', 'default');
+        }
 
-            // Carregar o menu na página
-            loadMenu('menu','admin');
+        loadFooter('container-footer');
 
-            // Carregar footer
-            loadFooter('container-footer');
-
-            // Incluido arquivo com base na navegação
-            loadPage((html_page)=> {
-                $('#root').html(html_page);
-            });
+        loadPage((html_page)=> {
+            $('#root').html(html_page);
+        });
     </script>
 
 

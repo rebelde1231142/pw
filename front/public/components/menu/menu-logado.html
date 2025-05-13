@@ -9,7 +9,7 @@
             <button class="btn btn-outline ms-2" id="themeToggle" title="Alternar tema" style="padding-top: 0px;">
                 <i class="bi bi-moon-fill" id="themeIcon"></i>
             </button>
-            <a class="navbar-brand" href="#">MinhaEmpresa</a>
+            <a class="navbar-brand" href="#">OLX</a>
         </div>
 
     <!-- Botão offcanvas (mobile) -->
@@ -53,11 +53,11 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li>
-                        <a class="dropdown-item" href="/">
+                        <a class="dropdown-item" href="/page/veiculo/perfil.html" id="linkPerfilUsuario">
                             <i class="bi bi-person-circle"></i>
-                            <span>user-logado@gmail.com</span>
+                            <span id="nomeUsuarioLogado">Usuário</span>
                         </a>
-                        <a class="dropdown-item" href="usuario/login" id="buttonsair">
+                        <a class="dropdown-item" href="/page/login.html" id="buttonsair">
                             <i class="bi bi-box-arrow-right"></i>
                             <span>Sair</span>
                         </a>
@@ -78,10 +78,28 @@
   </div>
 </nav>
 
+
 <script>
+    // Exibe o nome e a foto do usuário logado
+    const usuarioLogado = localStorage.getItem('usuarioLogado');
+    if (usuarioLogado) {
+        const usuario = JSON.parse(usuarioLogado);
+        document.getElementById('nomeUsuarioLogado').textContent = usuario.nome || 'Usuário';
+        if (usuario.fotoPerfil) {
+            document.getElementById('avatarMenuLogado').src = usuario.fotoPerfil;
+            document.getElementById('perfilAvatar').src = usuario.fotoPerfil;
+        }
+    }
+
     document.getElementById('buttonsair').addEventListener('click', function (e) {
-        e.preventDefault(); // Evita o comportamento padrão do link
-        window.location.href = '/usuario/login'; // Redireciona para a página de login
+        e.preventDefault();
+        localStorage.removeItem('usuarioLogado');
+        window.location.href = '/page/login.html';
+    });
+
+    document.getElementById('linkPerfilUsuario').addEventListener('click', function (e) {
+        e.preventDefault();
+        window.location.href = '/page/veiculo/perfil.html';
     });
 </script>
 

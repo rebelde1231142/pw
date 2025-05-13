@@ -1,4 +1,15 @@
 <link rel="stylesheet" href="/components/menu/menu.css">
+<style>
+.component-footer{
+    background-color: #f8f9fa;    
+    padding: 1rem;    
+    text-align: center;
+}
+.component-footer i{
+    margin: 0 10px;    
+    cursor: pointer;
+}
+</style>
 </head>
 <body>
 
@@ -9,7 +20,7 @@
             <button class="btn btn-outline ms-2" id="themeToggle" title="Alternar tema" style="padding-top: 0px;">
                 <i class="bi bi-moon-fill" id="themeIcon"></i>
             </button>
-            <a class="navbar-brand" href="#">MinhaEmpresa</a>
+            <a class="navbar-brand" href="#">OLX</a>
         </div>
 
     <!-- Botão offcanvas (mobile) -->
@@ -48,7 +59,7 @@
             <li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Projetos</a></li>                   
             <li class="nav-item">
-                <a class="nav-link" href="/login">
+                <a class="nav-link" href="/page/login.html">
                   <i class="bi bi-box-arrow-in-right"></i> Entrar
                 </a>
             </li>
@@ -66,3 +77,42 @@
     </div>
   </div>
 </nav>
+
+<div class="bg-body-tertiary text-center py-1 mt-auto component-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col">                    
+                <p class="mb-1">Siga-nos nas redes sociais:</p>
+            </div>
+            <div class="col">                    
+                <div>
+                    <i class="bi bi-facebook mx-1"></i>
+                    <i class="bi bi-twitter mx-1"></i>
+                    <i class="bi bi-instagram mx-1"></i>
+                </div>
+            </div>
+            <div class="col">                    
+                <p class="mt-1 mb-0 text-body-secondary">&copy; 2025 Meu Sistema</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer id="container-footer"></footer>
+<script type="module">
+  import { loadFooter } from '/components/footer/footer.js';
+  loadFooter('container-footer');
+</script>
+<script>
+  const currentPath = window.location.pathname;
+  const footer = document.getElementById('container-footer');
+  const menu = document.querySelector('nav');
+
+  if (currentPath === '/login' || currentPath === '/usuario/login') {
+      if (footer) footer.style.display = 'none';
+      if (menu) menu.style.display = 'none';
+  } else {
+      if (footer) footer.style.display = 'block';
+      if (menu) menu.style.display = 'block';
+  }
+</script>

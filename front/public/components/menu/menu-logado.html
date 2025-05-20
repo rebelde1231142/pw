@@ -6,9 +6,6 @@
   <div class="container-fluid">
     <!-- Logo à esquerda -->
         <div>
-            <button class="btn btn-outline ms-2" id="themeToggle" title="Alternar tema" style="padding-top: 0px;">
-                <i class="bi bi-moon-fill" id="themeIcon"></i>
-            </button>
             <a class="navbar-brand" href="#">OLX</a>
         </div>
 
@@ -91,11 +88,18 @@
         }
     }
 
-    document.getElementById('buttonsair').addEventListener('click', function (e) {
-        e.preventDefault();
-        localStorage.removeItem('usuarioLogado');
-        window.location.href = '/page/login.html';
-    });
+document.getElementById('buttonsair').addEventListener('click', function (e) {
+    e.preventDefault();
+    localStorage.removeItem('usuarioLogado');
+    // Troca o menu para o default se a função existir
+    if (window.loadMenu) {
+        loadMenu('menu', 'default');
+    } else if (window.parent && window.parent.loadMenu) {
+        window.parent.loadMenu('menu', 'default');
+    }
+    // Redireciona para a página principal (menu-default)
+    window.location.href = '/';
+});
 
     document.getElementById('linkPerfilUsuario').addEventListener('click', function (e) {
         e.preventDefault();

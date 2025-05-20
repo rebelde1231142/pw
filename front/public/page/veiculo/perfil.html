@@ -165,7 +165,8 @@
                         email: usuario.email,
                         telefone: novoTelefone,
                         senha: novaSenha ? novaSenha : usuario.senha,
-                        fotoPerfil: fotoPerfilUrl
+                        fotoPerfil: fotoPerfilUrl,
+                        tipo: usuario.tipo // <-- Adicione esta linha!
                     };
 
                     fetch('http://localhost:3000/usuarios/' + usuario.id, {

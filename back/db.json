@@ -181,6 +181,28 @@
       "imagem": [
         "http://localhost:3037/uploads/1747736678736.jpg"
       ]
+    },
+    {
+      "id": "9ebc",
+      "modelo": "GT-R 34",
+      "ano": 1998,
+      "preco": 1500000,
+      "descricao": "carro sonho de qualquer um",
+      "cor": "preto",
+      "quilometragem": 24980,
+      "potencia": 344,
+      "motor": "RB26DETT",
+      "cambio": "Manual",
+      "direcao": "Hidráulica",
+      "tracao": "Traseira",
+      "categoriaId": 1,
+      "montadoraId": 6,
+      "avaliacao": 5,
+      "destaque": false,
+      "disponivel": true,
+      "imagem": [
+        "http://localhost:3037/uploads/1747738389231.jpg"
+      ]
     }
   ],
   "usuarios": [
@@ -190,8 +212,8 @@
       "telefone": "15999999999",
       "senha": "leozin1231142",
       "fotoPerfil": "http://localhost:3037/uploads/1747135720270.jpg",
-      "id": "d97d",
-      "tipo": "admin"
+      "tipo": "admin",
+      "id": "d97d"
     },
     {
       "id": "20fc",
@@ -202,8 +224,5 @@
       "fotoPerfil": "http://localhost:3037/uploads/1747736511046.jpg",
       "tipo": "usuario"
     }
-  ],
-  "perfil": {
-    "telefone": "15999999999"
-  }
+  ]
 }

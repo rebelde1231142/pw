@@ -159,30 +159,48 @@
         "http://localhost:3037/uploads/1746531722655.jpg",
         "http://localhost:3037/uploads/1746531722650.jpg"
       ]
+    },
+    {
+      "id": "8900",
+      "modelo": "Fusca",
+      "ano": 1975,
+      "preco": 6000,
+      "descricao": "veiculo bom pro uso do dia a dia",
+      "cor": "Azul",
+      "quilometragem": 170000,
+      "potencia": 102,
+      "motor": "1.0",
+      "cambio": "Manual",
+      "direcao": "Mecânica",
+      "tracao": "Dianteira",
+      "categoriaId": 2,
+      "montadoraId": 3,
+      "avaliacao": 4,
+      "destaque": false,
+      "disponivel": true,
+      "imagem": [
+        "http://localhost:3037/uploads/1747736678736.jpg"
+      ]
     }
   ],
   "usuarios": [
-    {
-      "id": "1",
-      "nome": "Admin",
-      "email": "admin@example.com",
-      "senha": "123456"
-    },
     {
       "nome": "leonel",
       "email": "leonelbrenodasilva@gmail.com",
       "telefone": "15999999999",
       "senha": "leozin1231142",
       "fotoPerfil": "http://localhost:3037/uploads/1747135720270.jpg",
-      "id": "d97d"
+      "id": "d97d",
+      "tipo": "admin"
     },
     {
-      "id": "e192",
-      "nome": "luan",
-      "email": "leonelbrenodasilva1@gmail.com",
-      "telefone": "15999999998",
-      "senha": "leozin1231142",
-      "fotoPerfil": "http://localhost:3037/uploads/1747136156100.jpg"
+      "id": "20fc",
+      "nome": "leo",
+      "email": "leonel@gmail.com",
+      "telefone": "15999999999",
+      "senha": "leobh653",
+      "fotoPerfil": "http://localhost:3037/uploads/1747736511046.jpg",
+      "tipo": "usuario"
     }
   ],
   "perfil": {

@@ -9,7 +9,7 @@
             <button class="btn btn-outline ms-2" id="themeToggle" title="Alternar tema" style="padding-top: 0px;">
                 <i class="bi bi-moon-fill" id="themeIcon"></i>
             </button>
-            <a class="navbar-brand" href="#">MinhaEmpresa</a>
+            <a class="navbar-brand" href="#">Administrador</a>
         </div>
 
     <!-- Botão offcanvas (mobile) -->
@@ -49,17 +49,18 @@
             <li class="nav-item"><a class="nav-link" href="#">Projetos</a></li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-gear" ></i>
+                    <i class="bi bi-gear"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <i>
-                        <a class="dropdown-item" href="/">
+                    <li>
+                        <a class="dropdown-item" href="/page/veiculo/perfil.html" id="linkPerfilAdmin">
                             <i class="bi bi-person-circle"></i>
-                            <span>admin@gmail.com</span>
+                            <span id="nomeAdminMenu">Perfil</span>
+                            <i class="bi bi-star-fill text-warning" id="estrelaAdmin" title="Administrador"></i>
                         </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="usuario/login" id="buttonsair">
+                      <a class="dropdown-item" href="/page/login.html" id="buttonsair">
                         <i class="bi bi-box-arrow-right"></i>
                         <span>Sair</span>
                     </a>
@@ -82,9 +83,23 @@
 
 <script>
 document.getElementById('buttonsair').addEventListener('click', function (e) {
-    e.preventDefault(); // Evita o comportamento padrão do link
-    window.location.href = '/usuario/login'; // Redireciona para a página de login
+    e.preventDefault();
+    localStorage.removeItem('usuarioLogado');
+    window.location.href = '/page/login.html';
 });
+
+// Exibe o nome do admin logado no menu e a estrela
+const usuarioLogado = localStorage.getItem('usuarioLogado');
+if (usuarioLogado) {
+    const usuario = JSON.parse(usuarioLogado);
+    if (usuario.nome && document.getElementById('nomeAdminMenu')) {
+        document.getElementById('nomeAdminMenu').textContent = usuario.nome;
+    }
+    // Garante que a estrela só aparece para admin
+    if (usuario.tipo !== 'admin' && document.getElementById('estrelaAdmin')) {
+        document.getElementById('estrelaAdmin').style.display = 'none';
+    }
+}
 </script>
 
 

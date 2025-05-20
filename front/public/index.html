@@ -39,7 +39,12 @@
         // Verifica se o usuário está logado
         const usuarioLogado = localStorage.getItem('usuarioLogado');
         if (usuarioLogado) {
-            loadMenu('menu', 'logado');
+            const usuario = JSON.parse(usuarioLogado);
+            if (usuario.tipo === 'admin') {
+                loadMenu('menu', 'admin');
+            } else {
+                loadMenu('menu', 'logado');
+            }
         } else {
             loadMenu('menu', 'default');
         }

@@ -197,6 +197,13 @@
                 });
             });
         });
+
+        // Adicione este script nos arquivos de menu (ex: menu-admin.html, menu-logado.html)
+        window.addEventListener('storage', function(event) {
+            if (event.key === 'usuarioLogado') {
+                location.reload(); // Recarrega a página/aba para refletir as mudanças
+            }
+        });
     </script>
 </body>
 </html>

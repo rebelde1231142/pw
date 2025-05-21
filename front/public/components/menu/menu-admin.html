@@ -54,7 +54,7 @@
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li>
                         <a class="dropdown-item" href="/page/veiculo/perfil.html" id="linkPerfilAdmin">
-                            <i class="bi bi-person-circle"></i>
+                            <img id="iconePerfilAdmin" src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Perfil" style="width: 24px; height: 24px; border-radius: 50%; object-fit: cover; margin-right: 8px;">
                             <span id="nomeAdminMenu">Perfil</span>
                             <i class="bi bi-star-fill text-warning" id="estrelaAdmin" title="Administrador"></i>
                         </a>
@@ -107,6 +107,17 @@ if (usuarioLogado) {
         document.getElementById('estrelaAdmin').style.display = 'none';
     }
 }
+
+// Atualiza a foto do perfil do admin
+function atualizarIconePerfilAdmin() {
+    const usuarioLogado = localStorage.getItem('usuarioLogado');
+    const icone = document.getElementById('iconePerfilAdmin');
+    if (icone && usuarioLogado) {
+        const usuario = JSON.parse(usuarioLogado);
+        icone.src = usuario.fotoPerfil || 'https://cdn-icons-png.flaticon.com/512/747/747376.png';
+    }
+}
+atualizarIconePerfilAdmin();
 </script>
 
 

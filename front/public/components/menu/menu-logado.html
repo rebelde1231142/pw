@@ -6,7 +6,10 @@
   <div class="container-fluid">
     <!-- Logo à esquerda -->
         <div>
-            <a class="navbar-brand" href="#">OLX</a>
+            <button class="btn btn-outline ms-2" id="themeToggle" title="Alternar tema" style="padding-top: 0px;">
+                <i class="bi bi-moon-fill" id="themeIcon"></i>
+            </button>
+            <a class="navbar-brand" href="#">Logado</a>
         </div>
 
     <!-- Botão offcanvas (mobile) -->
@@ -50,19 +53,21 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li>
-                        <a class="dropdown-item" href="/page/veiculo/perfil.html" id="linkPerfilUsuario">
-                            <i class="bi bi-person-circle"></i>
-                            <span id="nomeUsuarioLogado">Usuário</span>
+                        <a class="dropdown-item" href="/page/veiculo/perfil.html" id="linkPerfilLogado">
+                            <img id="iconePerfilMenu" src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Perfil" style="width: 24px; height: 24px; border-radius: 50%; object-fit: cover; margin-right: 8px;">
+                            <span id="nomeUsuarioMenu">Perfil</span>
                         </a>
-                        <a class="dropdown-item" href="/page/login.html" id="buttonsair">
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="/page/login.html" id="buttonSairLogado">
                             <i class="bi bi-box-arrow-right"></i>
                             <span>Sair</span>
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li>          
         </ul>
-                        
+
         <!-- Campo de busca em mobile -->
         <form class="d-lg-none mt-3" role="search">
           <div class="input-group">
@@ -75,20 +80,8 @@
   </div>
 </nav>
 
-
 <script>
-    // Exibe o nome e a foto do usuário logado
-    const usuarioLogado = localStorage.getItem('usuarioLogado');
-    if (usuarioLogado) {
-        const usuario = JSON.parse(usuarioLogado);
-        document.getElementById('nomeUsuarioLogado').textContent = usuario.nome || 'Usuário';
-        if (usuario.fotoPerfil) {
-            document.getElementById('avatarMenuLogado').src = usuario.fotoPerfil;
-            document.getElementById('perfilAvatar').src = usuario.fotoPerfil;
-        }
-    }
-
-document.getElementById('buttonsair').addEventListener('click', function (e) {
+document.getElementById('buttonSairLogado').addEventListener('click', function (e) {
     e.preventDefault();
     localStorage.removeItem('usuarioLogado');
     // Troca o menu para o default se a função existir
@@ -101,9 +94,25 @@ document.getElementById('buttonsair').addEventListener('click', function (e) {
     window.location.href = '/';
 });
 
-    document.getElementById('linkPerfilUsuario').addEventListener('click', function (e) {
-        e.preventDefault();
-        window.location.href = '/page/veiculo/perfil.html';
-    });
+// Exibe o nome do usuário logado no menu
+const usuarioLogado = localStorage.getItem('usuarioLogado');
+if (usuarioLogado) {
+    const usuario = JSON.parse(usuarioLogado);
+    if (usuario.nome && document.getElementById('nomeUsuarioMenu')) {
+        document.getElementById('nomeUsuarioMenu').textContent = usuario.nome;
+    }
+}
+
+
+function atualizarIconePerfilMenu() {
+    const usuarioLogado = localStorage.getItem('usuarioLogado');
+    const icone = document.getElementById('iconePerfilMenu');
+    if (icone && usuarioLogado) {
+        const usuario = JSON.parse(usuarioLogado);
+        icone.src = usuario.fotoPerfil || 'https://cdn-icons-png.flaticon.com/512/747/747376.png';
+    }
+}
+atualizarIconePerfilMenu();
 </script>
 
+<script src='/components/menu/alterar_tema.js'></script>

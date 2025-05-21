@@ -203,6 +203,29 @@
       "imagem": [
         "http://localhost:3037/uploads/1747738389231.jpg"
       ]
+    },
+    {
+      "id": "2750",
+      "modelo": "EcoSport",
+      "ano": 2024,
+      "preco": 1221212,
+      "descricao": "d",
+      "cor": "preto",
+      "quilometragem": 211212,
+      "potencia": 121,
+      "motor": "2112",
+      "cambio": "Manual",
+      "direcao": "Hidráulica",
+      "tracao": "Traseira",
+      "categoriaId": 2,
+      "montadoraId": 1,
+      "avaliacao": 12,
+      "destaque": false,
+      "disponivel": true,
+      "imagem": [
+        "http://localhost:3037/uploads/1747840243036.png",
+        "http://localhost:3037/uploads/1747840212689.jpg"
+      ]
     }
   ],
   "usuarios": [
@@ -223,6 +246,14 @@
       "senha": "leobh653",
       "fotoPerfil": "http://localhost:3037/uploads/1747736511046.jpg",
       "tipo": "usuario"
+    },
+    {
+      "nome": "Pablo",
+      "email": "pablo@gmail.com",
+      "telefone": "15988888888",
+      "senha": "7minutoz",
+      "fotoPerfil": "http://localhost:3037/uploads/1747839786544.jpg",
+      "id": "2351"
     }
   ]
 }

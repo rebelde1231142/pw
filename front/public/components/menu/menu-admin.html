@@ -53,14 +53,14 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li>
-                        <a class="dropdown-item" href="/page/veiculo/perfil.html" id="linkPerfilAdmin">
+                        <a class="dropdown-item" href="/usuario/perfil" id="linkPerfilAdmin">
                             <img id="iconePerfilAdmin" src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Perfil" style="width: 24px; height: 24px; border-radius: 50%; object-fit: cover; margin-right: 8px;">
                             <span id="nomeAdminMenu">Perfil</span>
                             <i class="bi bi-star-fill text-warning" id="estrelaAdmin" title="Administrador"></i>
                         </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="/page/login.html" id="buttonsair">
+                      <a class="dropdown-item" href="/usuario/login" id="buttonsair">
                         <i class="bi bi-box-arrow-right"></i>
                         <span>Sair</span>
                     </a>
@@ -81,20 +81,16 @@
 </div>
 </nav>
 
-<script>
+<script type="module">
+import { logoutAndRedirect } from '/assets/js/logoutAndRedirect.js';
+
 document.getElementById('buttonsair').addEventListener('click', function (e) {
     e.preventDefault();
-    localStorage.removeItem('usuarioLogado');
-    // Troca o menu para o default se a função existir
-    if (window.loadMenu) {
-        loadMenu('menu', 'default');
-    } else if (window.parent && window.parent.loadMenu) {
-        window.parent.loadMenu('menu', 'default');
-    }
-    // Redireciona para a página principal (menu-default)
-    window.location.href = '/';
+    logoutAndRedirect();
 });
+</script>
 
+<script>
 // Exibe o nome do admin logado no menu e a estrela
 const usuarioLogado = localStorage.getItem('usuarioLogado');
 if (usuarioLogado) {

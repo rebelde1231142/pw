@@ -21,11 +21,19 @@ const rotas = [
     },
     {
         'path': '/usuario/login',
-        'component': '/page/login.html'
+        'component': '/page/usuario/login.html'
     },
     {
-        'path': '/CadastroUsuario',
-        'component': '/page/cadastrousuario.html'
+        'path': '/usuario/cadastrousuario',
+        'component': '/page/usuario/cadastrousuario.html'
+    },
+    {
+        'path': '/usuario/perfil',
+        'component': '/page/usuario/perfil.html'
+    },
+    {
+        'path': '/veiculo/perfil',
+        'component': '/page/veiculo/perfil.html'
     }
 ];
 
@@ -64,5 +72,11 @@ export const loadPage = async (callBackPageReturned) => {
         console.error('Erro ao carregar página:', error);
     }
 };
+
+// Função utilitária para gerar links de navegação baseados nas rotas
+export const getRouteLink = (path) => {
+    const rota = rotas.find(rota => rota.path.toLowerCase() === path.toLowerCase());
+    return rota ? rota.path : '/error';
+}
 
 

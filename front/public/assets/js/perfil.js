@@ -3,7 +3,7 @@ let usuario = null;
 function carregarPerfil() {
     const usuarioLogado = localStorage.getItem('usuarioLogado');
     if (!usuarioLogado) {
-        window.location.href = "/page/login.html";
+        window.location.href = "/usuario/login";
         return;
     }
     usuario = JSON.parse(usuarioLogado);

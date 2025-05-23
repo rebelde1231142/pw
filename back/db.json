@@ -203,52 +203,6 @@
       "imagem": [
         "http://localhost:3037/uploads/1747738389231.jpg"
       ]
-    },
-    {
-      "id": "2750",
-      "modelo": "EcoSport",
-      "ano": 2024,
-      "preco": 1221212,
-      "descricao": "d",
-      "cor": "preto",
-      "quilometragem": 211212,
-      "potencia": 121,
-      "motor": "2112",
-      "cambio": "Manual",
-      "direcao": "Hidráulica",
-      "tracao": "Traseira",
-      "categoriaId": 2,
-      "montadoraId": 1,
-      "avaliacao": 12,
-      "destaque": false,
-      "disponivel": true,
-      "imagem": [
-        "http://localhost:3037/uploads/1747840243036.png",
-        "http://localhost:3037/uploads/1747840212689.jpg"
-      ]
-    },
-    {
-      "id": "35c0",
-      "modelo": "Fusca",
-      "ano": 2022,
-      "preco": 88888,
-      "descricao": "88888888888888888888888888",
-      "cor": "preto",
-      "quilometragem": 88888,
-      "potencia": 888,
-      "motor": "888",
-      "cambio": "Manual",
-      "direcao": "Hidráulica",
-      "tracao": "Dianteira",
-      "categoriaId": 1,
-      "montadoraId": 2,
-      "avaliacao": 88,
-      "destaque": false,
-      "disponivel": true,
-      "imagem": [
-        "http://localhost:3037/uploads/1747932496324.jpg",
-        "http://localhost:3037/uploads/1747932496322.jpg"
-      ]
     }
   ],
   "usuarios": [

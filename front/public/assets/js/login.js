@@ -26,9 +26,9 @@ $(document).ready(() => {
                     .text(error.message);
             });
     });
-    // Corrige o link de cadastro para garantir que sempre leve ao formulário correto
-    $(document).on('click', 'a[href$="cadastrousuario.html"]', function(e) {
+    // Redireciona para o cadastro ao clicar em "Cadastrar"
+    $('#linkCadastro').on('click', function(e) {
         e.preventDefault();
-        window.location.href = '/page/usuario/cadastrousuario.html';
+        window.location.href = '/usuario/cadastrousuario';
     });
 });

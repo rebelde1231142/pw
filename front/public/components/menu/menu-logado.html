@@ -5,12 +5,12 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top position-relative">
   <div class="container-fluid">
     <!-- Logo à esquerda -->
-        <div>
-            <button class="btn btn-outline ms-2" id="themeToggle" title="Alternar tema" style="padding-top: 0px;">
-                <i class="bi bi-moon-fill" id="themeIcon"></i>
-            </button>
-            <a class="navbar-brand" href="#">Logado</a>
-        </div>
+    <div>
+      <button class="btn btn-outline ms-2" id="themeToggle" title="Alternar tema" style="padding-top: 0px;">
+        <i class="bi bi-moon-fill" id="themeIcon"></i>
+      </button>
+      <a class="navbar-brand" href="#">Logado</a>
+    </div>
 
     <!-- Botão offcanvas (mobile) -->
     <button id="btnMobile" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
@@ -19,10 +19,10 @@
     </button>
 
     <!-- Campo de busca centralizado (desktop apenas) -->
-    <form class="d-none d-lg-flex navbar-center" role="search">
-      <div class="input-group">
-        <input type="search" class="form-control" placeholder="Buscar..." aria-label="Search">
-        <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+    <form class="d-none d-lg-flex justify-content-center flex-grow-1" role="search">
+      <div class="input-group rounded-pill shadow-sm mx-auto" style="background: #f8f9fa; border: 1.5px solid #d1d5db; min-width:340px; max-width:500px; width:100%;">
+        <input type="search" class="form-control border-0 bg-transparent" placeholder="Buscar..." aria-label="Search" style="box-shadow: none; background: transparent;">
+        <button class="btn btn-outline-success rounded-end-pill" type="submit"><i class="bi bi-search"></i></button>
       </div>
     </form>
 

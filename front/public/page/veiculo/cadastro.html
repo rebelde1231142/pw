@@ -123,7 +123,7 @@
                     </label>
                     <input type="file" id="imagem" multiple accept="image/*" style="display: none;">
                 </div>
-                
+                <small class="text-muted">Arraste as fotos para reordenar. A primeira será a principal.</small>
             </fieldset>
 
           
@@ -178,10 +178,9 @@ const uploadImagens = async (imagens) => {
                 .then(result => {
                     const imgElement = $('<img>')
                         .attr('src', result.url) // Supondo que a resposta contenha a URL da imagem
-                        .addClass('img-thumbnail')
-                        .addClass('listaDeFotosVeiculos')
+                        .addClass('img-thumbnail listaDeFotosVeiculos')
                         .css({ width: '180px', margin: '5px' });
-                    imagensVeiculos.prepend(imgElement);
+                    imagensVeiculos.append(imgElement);
                 })
                 .catch(error => {
                     console.error('Erro no upload:', error);
@@ -225,10 +224,9 @@ const exibirAlerta = (mensagem, tipo) => {
 // Atualize o evento de envio do formulário
 $('#formVeiculo').on('submit', function (e) {
     e.preventDefault(); // Evita o envio padrão do formulário
-    let fotosSelecionadas =[];
-
-    // Pega todas as imagens selecionadas
-    $('.listaDeFotosVeiculos').each(function() {
+    let fotosSelecionadas = [];
+    // Pega as imagens na ordem atual
+    $('#imagensVeiculos img').each(function() {
         fotosSelecionadas.push($(this).attr('src'));
     });
 
@@ -250,7 +248,7 @@ $('#formVeiculo').on('submit', function (e) {
         avaliacao: parseFloat($('#avaliacao').val()),
         destaque: $('#destaque').is(':checked'),
         disponivel: $('#disponivel').is(':checked'),
-        imagem: fotosSelecionadas // Adiciona as imagens selecionadas
+        imagem: fotosSelecionadas // Adiciona as imagens na ordem escolhida
     };
 
 
@@ -294,22 +292,30 @@ $(document).ready(() => {
         animation: 150, // Animação ao arrastar
         ghostClass: 'sortable-ghost', // Classe para o item arrastado
         onEnd: function (evt) {
-            console.log('Nova ordem:', getImagensOrdenadas());
+            // Atualiza a ordem das imagens ao arrastar
         }
     });
 
-    // Função para obter a nova ordem das imagens
-    const getImagensOrdenadas = () => {
-        const imagens = [];
-        $('#imagensVeiculos img').each(function () {
-            imagens.push($(this).attr('src'));
-        });
-        return imagens;
-    };
-});
+    // Evento para upload e exibição das imagens
+    $('#imagem').on('change', function (e) {
+        const files = e.target.files;
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            uploadImagens(file)
+                .then(result => {
+                    const imgElement = $('<img>')
+                        .attr('src', result.url)
+                        .addClass('img-thumbnail listaDeFotosVeiculos')
+                        .css({ width: '180px', margin: '5px' });
+                    $('#imagensVeiculos').append(imgElement);
+                })
+                .catch(error => {
+                    console.error('Erro no upload:', error);
+                });
+        }
+    });
 
 
-$(document).ready(() => {
     // Função para carregar categorias no combo box
     const carregarCategorias = async () => {
         try {
@@ -359,11 +365,43 @@ $(document).ready(() => {
 
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+<script>
+$(document).ready(() => {
+    // Inicializa o SortableJS no contêiner de imagens
+    const imagensVeiculos = document.getElementById('imagensVeiculos');
+    Sortable.create(imagensVeiculos, {
+        animation: 150, // Animação ao arrastar
+        ghostClass: 'sortable-ghost', // Classe para o item arrastado
+        onEnd: function (evt) {
+            // Atualiza a ordem das imagens ao arrastar
+        }
+    });
+
+    // Evento para upload e exibição das imagens
+    $('#imagem').on('change', function (e) {
+        const files = e.target.files;
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            uploadImagens(file)
+                .then(result => {
+                    const imgElement = $('<img>')
+                        .attr('src', result.url)
+                        .addClass('img-thumbnail listaDeFotosVeiculos')
+                        .css({ width: '180px', margin: '5px' });
+                    $('#imagensVeiculos').append(imgElement);
+                })
+                .catch(error => {
+                    console.error('Erro no upload:', error);
+                });
+        }
+    });
+});
+</script>
 <style>
     .sortable-ghost {
-        opacity: 0.5; /* Transparência do item arrastado */
+        opacity: 0.5;
     }
     #imagensVeiculos img {
-        cursor: grab; /* Mostra o cursor de "mão" ao passar sobre as imagens */
+        cursor: grab;
     }
 </style>

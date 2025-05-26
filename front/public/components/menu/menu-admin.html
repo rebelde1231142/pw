@@ -6,9 +6,6 @@
   <div class="container-fluid">
     <!-- Logo à esquerda -->
     <div>
-      <button class="btn btn-outline ms-2" id="themeToggle" title="Alternar tema" style="padding-top: 0px;">
-        <i class="bi bi-moon-fill" id="themeIcon"></i>
-      </button>
       <a class="navbar-brand" href="#">Administrador</a>
     </div>
     <!-- Botão offcanvas (mobile) -->
@@ -24,6 +21,9 @@
       </div>
     </form>
 
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header"></div>
     <!-- Offcanvas Menu -->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
@@ -79,6 +79,7 @@
 </div>
 </nav>
 
+<script src="/assets/js/adminMenuInfo.js"></script>
 <script type="module">
 import { logoutAndRedirect } from '/assets/js/logoutAndRedirect.js';
 
@@ -87,32 +88,5 @@ document.getElementById('buttonsair').addEventListener('click', function (e) {
     logoutAndRedirect();
 });
 </script>
-
-<script>
-// Exibe o nome do admin logado no menu e a estrela
-const usuarioLogado = localStorage.getItem('usuarioLogado');
-if (usuarioLogado) {
-    const usuario = JSON.parse(usuarioLogado);
-    if (usuario.nome && document.getElementById('nomeAdminMenu')) {
-        document.getElementById('nomeAdminMenu').textContent = usuario.nome;
-    }
-    // Garante que a estrela só aparece para admin
-    if (usuario.tipo !== 'admin' && document.getElementById('estrelaAdmin')) {
-        document.getElementById('estrelaAdmin').style.display = 'none';
-    }
-}
-
-// Atualiza a foto do perfil do admin
-function atualizarIconePerfilAdmin() {
-    const usuarioLogado = localStorage.getItem('usuarioLogado');
-    const icone = document.getElementById('iconePerfilAdmin');
-    if (icone && usuarioLogado) {
-        const usuario = JSON.parse(usuarioLogado);
-        icone.src = usuario.fotoPerfil || 'https://cdn-icons-png.flaticon.com/512/747/747376.png';
-    }
-}
-atualizarIconePerfilAdmin();
-</script>
-
 
 <script src='/components/menu/alterar_tema.js'></script>

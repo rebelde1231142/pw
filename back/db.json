@@ -137,30 +137,6 @@
       ]
     },
     {
-      "id": "483f",
-      "modelo": "Xre 344",
-      "ano": 2021,
-      "preco": 34044,
-      "descricao": "",
-      "cor": "Preto",
-      "quilometragem": 15555,
-      "potencia": 3222,
-      "motor": " monocilíndrico OHC",
-      "cambio": "Manual",
-      "direcao": "Hidráulica",
-      "tracao": "Traseira",
-      "categoriaId": 2,
-      "montadoraId": 2,
-      "avaliacao": 5,
-      "destaque": false,
-      "disponivel": true,
-      "imagem": [
-        "http://localhost:3037/uploads/1746531722653.jpg",
-        "http://localhost:3037/uploads/1746531722655.jpg",
-        "http://localhost:3037/uploads/1746531722650.jpg"
-      ]
-    },
-    {
       "id": "8900",
       "modelo": "Fusca",
       "ano": 1975,
@@ -211,7 +187,7 @@
       "email": "leonelbrenodasilva@gmail.com",
       "telefone": "15999999999",
       "senha": "leozin1231142",
-      "fotoPerfil": "http://localhost:3037/uploads/1747931615134.jpg",
+      "fotoPerfil": "http://localhost:3037/uploads/1748267213677.jpg",
       "tipo": "admin",
       "id": "d97d"
     },

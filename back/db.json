@@ -179,6 +179,30 @@
       "imagem": [
         "http://localhost:3037/uploads/1747738389231.jpg"
       ]
+    },
+    {
+      "id": "406a",
+      "modelo": "goleta",
+      "ano": 2025,
+      "preco": 400000,
+      "descricao": "gdzfgdfglkdghldkfngdfknlfdbfkdbcklbcvlkbcvlkbncvklbnbnnzklbckvjbncjvxz",
+      "cor": "verde",
+      "quilometragem": 243424,
+      "potencia": 4444,
+      "motor": "4444",
+      "cambio": "Manual",
+      "direcao": "Hidráulica",
+      "tracao": "Traseira",
+      "categoriaId": 2,
+      "montadoraId": 3,
+      "avaliacao": 55,
+      "destaque": false,
+      "disponivel": true,
+      "imagem": [
+        "http://localhost:3037/uploads/1750760724215.jpg",
+        "http://localhost:3037/uploads/1750760724222.jpg",
+        "http://localhost:3037/uploads/1750760724220.jpg"
+      ]
     }
   ],
   "usuarios": [
@@ -201,12 +225,12 @@
       "id": "20fc"
     },
     {
-      "nome": "Pablo",
-      "email": "pablo@gmail.com",
-      "telefone": "15988888888",
-      "senha": "7minutoz",
-      "fotoPerfil": "http://localhost:3037/uploads/1747839786544.jpg",
-      "id": "2351"
+      "id": "b9c7",
+      "nome": "leonel",
+      "email": "leonel1@gmail.com",
+      "telefone": "15999999999",
+      "senha": "leobh653",
+      "fotoPerfil": "http://localhost:3037/uploads/1750761356497.jpg"
     }
   ]
 }

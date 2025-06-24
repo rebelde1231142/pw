@@ -20,7 +20,8 @@ $(document).ready(() => {
             email: $('#email').val(),
             telefone: $('#telefone').val(),
             senha: $('#senha').val(),
-            fotoPerfil: "" // será preenchido após upload
+            fotoPerfil: "", // será preenchido após upload
+            tipo: "usuario" // Garante que todo novo usuário é do tipo 'usuario'
         };
 
         // Função para enviar a imagem e retornar a URL

@@ -225,12 +225,13 @@
       "id": "20fc"
     },
     {
-      "id": "b9c7",
+      "id": "29e4",
       "nome": "leonel",
       "email": "leonel1@gmail.com",
       "telefone": "15999999999",
-      "senha": "leobh653",
-      "fotoPerfil": "http://localhost:3037/uploads/1750761356497.jpg"
+      "senha": "leozin1231142",
+      "fotoPerfil": "http://localhost:3037/uploads/1750762891280.jpg",
+      "tipo": "usuario"
     }
   ]
 }

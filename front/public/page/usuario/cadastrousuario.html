@@ -89,37 +89,40 @@
             });
 
             $('#formCadastroUsuario').on('submit', function (e) {
-                e.preventDefault();
+                e.preventDefault(); // Impede o envio padrão do formulário
 
+                // Cria o usuário com os dados do formulário
                 const usuario = {
-                    nome: $('#nome').val(),
-                    email: $('#email').val(),
-                    telefone: $('#telefone').val(),
-                    senha: $('#senha').val(),
-                    fotoPerfil: "" // será preenchido após upload
+                    nome: $('#nome').val(), // Nome do usuário
+                    email: $('#email').val(), // E-mail do usuário
+                    telefone: $('#telefone').val(), // Telefone do usuário
+                    senha: $('#senha').val(), // Senha do usuário
+                    fotoPerfil: "", // será preenchido após upload
+                    tipo: "usuario" // Define o tipo do usuário como 'usuario'
                 };
 
                 // Função para enviar a imagem e retornar a URL
                 function uploadFotoPerfil() {
-                    const file = $('#fotoPerfil')[0].files[0];
+                    const file = $('#fotoPerfil')[0].files[0]; // Pega o arquivo da foto
                     if (!file) return Promise.resolve(""); // Se não houver imagem, retorna vazio
 
-                    const formData = new FormData();
-                    formData.append('file', file);
+                    const formData = new FormData(); // Cria um FormData para envio
+                    formData.append('file', file); // Adiciona o arquivo ao FormData
 
                     return fetch('http://localhost:3037/upload', {
-                        method: 'POST',
-                        body: formData
+                        method: 'POST', // Método POST para upload
+                        body: formData // Corpo da requisição com o FormData
                     })
-                    .then(response => response.json())
-                    .then(result => result.url || "");
+                    .then(response => response.json()) // Converte resposta em JSON
+                    .then(result => result.url || ""); // Retorna a URL da imagem
                 }
 
                 // Verifica se já existe usuário com o mesmo e-mail
                 fetch('http://localhost:3000/usuarios?email=' + encodeURIComponent(usuario.email))
-                    .then(response => response.json())
+                    .then(response => response.json()) // Converte resposta em JSON
                     .then(usuarios => {
                         if (usuarios.length > 0) {
+                            // Se já existe, exibe alerta de erro
                             $('#alertaCadastro')
                                 .removeClass('d-none alert-success')
                                 .addClass('alert-danger')
@@ -127,25 +130,27 @@
                         } else {
                             // Faz upload da foto e depois cadastra o usuário
                             uploadFotoPerfil().then(url => {
-                                usuario.fotoPerfil = url;
+                                usuario.fotoPerfil = url; // Adiciona a URL da foto ao usuario
                                 fetch('http://localhost:3000/usuarios', {
-                                    method: 'POST',
-                                    headers: { 'Content-Type': 'application/json' },
-                                    body: JSON.stringify(usuario)
+                                    method: 'POST', // Método POST para cadastro
+                                    headers: { 'Content-Type': 'application/json' }, // Cabeçalho JSON
+                                    body: JSON.stringify(usuario) // Envia o usuario
                             })
                             .then(response => {
                                 if (response.ok) {
+                                    // Cadastro realizado com sucesso
                                     $('#alertaCadastro')
                                         .removeClass('d-none alert-danger')
                                         .addClass('alert-success')
                                         .text('Usuário cadastrado com sucesso!');
-                                    $('#formCadastroUsuario')[0].reset();
-                                    $('#previewFotoPerfil').attr('src', 'https://cdn-icons-png.flaticon.com/512/747/747376.png');
+                                    $('#formCadastroUsuario')[0].reset(); // Limpa o formulário
+                                    $('#previewFotoPerfil').attr('src', 'https://cdn-icons-png.flaticon.com/512/747/747376.png'); // Reseta a imagem
                                 } else {
                                     throw new Error('Erro ao cadastrar usuário.');
                                 }
                             })
                             .catch(error => {
+                                // Exibe erro ao cadastrar
                                 $('#alertaCadastro')
                                     .removeClass('d-none alert-success')
                                     .addClass('alert-danger')
@@ -155,6 +160,7 @@
                     }
                 })
                 .catch(error => {
+                    // Exibe erro ao verificar e-mail
                     $('#alertaCadastro')
                         .removeClass('d-none alert-success')
                         .addClass('alert-danger')
